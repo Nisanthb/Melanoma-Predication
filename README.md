@@ -80,6 +80,35 @@ demonstrating how well the model fits the data.
 - The model achieved a high accuracy of 86.13% on the test dataset, indicating its effectiveness in
 distinguishing between benign and malignant melanoma lesions.
 
+### ADVERSAIAL ATTACKS & DEFENSE
+To assess the robustness of our deep learning models for melanoma classification, we evaluated them under various adversarial attack scenarios and implemented corresponding defense mechanisms.
+
+Adversarial Attacks
+We used the Torchattacks library to generate adversarial examples using the following methods:
+
+- Basic Iterative Method (BIM): Iteratively perturbs input pixels along the gradient direction.
+- Projected Gradient Descent (PGD): A stronger multi-step variant of FGSM with random start and projection to constraint set.
+
+These attacks revealed vulnerabilities in both ResNet-50 and EfficientNet models. Significant drops in model accuracy were observed under adversarial settings (e.g., from 91% to 4.52% in binary classification with PGD).
+
+Defense Mechanisms
+To counter these attacks, we implemented:
+
+- Adversarial Training: Training on adversarial examples to improve model resilience.
+- Gradient Masking: Obscuring gradient information to hinder attacker optimization.
+- Singular Value Decomposition (SVD): A preprocessing technique that denoises inputs by retaining dominant singular components of the image.
+- Input Randomization: Including dropout and transformations to reduce attack success rates.
+
+While defenses improved robustness in some classes (e.g., up to 93.5% accuracy in class 1 under BIM), overall robustness remains a challenge, indicating the need for further research and tuning.
+
+| Model        | Task         | Clean Acc | BIM Acc | PGD Acc | Defense Acc                      |
+| ------------ | ------------ | --------- | ------- | ------- | -------------------------------- |
+| ResNet-50    | Binary Class | 91%       | 0.14%   | 0.23%   | 31.25%                           |
+| ResNet-50    | Multiclass   | 84%       | 13.76%  | 11.06%  | 10.25%                           |
+| EfficientNet | Binary Class | 91.5%     | 73.79%  | 4.52%   | 29.00%                           |
+| EfficientNet | Multiclass   | 86.13%    | 94.86%  | 88.51%  | 7.50% (overall), 93.5% (class 1) |
+
+
 ### CONCLUSION
 
 Efficient-Net for Binary and Multi-class classification of melanoma lesions has proven successful, achieving high accuracy and robust performance metrics. This model can significantly aid in the early detection and diagnosis of melanoma, potentially improving patient outcomes.
