@@ -1,5 +1,5 @@
 # Melanoma-Predication
-<ins> ### INTRODUCTION </ins> 
+### INTRODUCTION 
 
 Melanoma, a form of skin cancer, necessitates accurate early diagnosis for effective treatment.
 This project focuses on the binary classification of melanoma lesions, differentiating between
@@ -17,7 +17,7 @@ project due to its efficiency and accuracy.
 
 The dataset was sourced from Kaggle for both Binary and Multiclass classification.
 
-<ins> ### BINARY CLASSIFICATION </ins> 
+### BINARY CLASSIFICATION 
 
 The images are labelled as either 'benign' or 'malignant', representing the binary nature of the
 classification task.
@@ -45,7 +45,7 @@ demonstrating how well the model fits the data.
 - The model achieved a high accuracy of 91.45% on the test dataset, indicating its effectiveness in
 distinguishing between benign and malignant melanoma lesions.
 
-<ins>  ### MULTICLASS CLASSIFICATION  </ins> 
+### MULTICLASS CLASSIFICATION 
 The dataset for this multiclass classification task was sourced from Kaggle.
 
 - Training set: 20,265 images
